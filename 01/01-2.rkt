@@ -1,6 +1,5 @@
 #lang racket
 
-
 (define arr (file->string "input"))
 
 (define arr-of-arr (map (lambda (a) (regexp-split #rx"\n" a)) (regexp-split #rx"\n\n" (regexp-replace #rx"\n$" arr ""))))
