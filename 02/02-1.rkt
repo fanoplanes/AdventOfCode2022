@@ -5,8 +5,14 @@
 (define list-of-list (map (lambda (a) (regexp-split #rx" " a)) (regexp-split #rx"\n" (regexp-replace #rx"\n$" input-string ""))))
 
 (define won? (lambda (Arr) (cond
-                              [(or (and (string=? (first Arr) "A") (string=? (second Arr) "Y")) (and (string=? (first Arr) "B") (string=? (second Arr) "Z")) (and (string=? (first Arr) "C") (string=? (second Arr) "X"))) 6]
-                              [(or (and (string=? (first Arr) "A") (string=? (second Arr) "X")) (and (string=? (first Arr) "B") (string=? (second Arr) "Y")) (and (string=? (first Arr) "C") (string=? (second Arr) "Z"))) 3]
+                              [(or
+                                (and (string=? (first Arr) "A") (string=? (second Arr) "Y"))
+                                (and (string=? (first Arr) "B") (string=? (second Arr) "Z"))
+                                (and (string=? (first Arr) "C") (string=? (second Arr) "X"))) 6]
+                              [(or
+                                (and (string=? (first Arr) "A") (string=? (second Arr) "X"))
+                                (and (string=? (first Arr) "B") (string=? (second Arr) "Y"))
+                                (and (string=? (first Arr) "C") (string=? (second Arr) "Z"))) 3]
                               [else 0])))
 
 (define value (lambda (Brr) (cond
