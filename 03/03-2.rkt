@@ -12,7 +12,7 @@
 (define common (map (lambda (hlvd) (car (set-intersect (string->list (~a (first hlvd))) (string->list (~a (second hlvd))) (string->list (~a (third hlvd)))))) split-list))
 
 (define value (lambda (character) (cond
-                                    [(regexp-match? #rx"[A-Z]" (~a character)) (- (char->integer character) 38)]
-                                    [(regexp-match? #rx"[a-z]" (~a character)) (- (char->integer character) 96)])))
+                                    [(char-upper-case? character) (- (char->integer character) 38)]
+                                    [(char-lower-case? character) (- (char->integer character) 96)])))
 
 (foldl + 0 (map (lambda (character) (value character)) common))
